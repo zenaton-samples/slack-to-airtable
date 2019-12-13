@@ -1,5 +1,5 @@
-const slackConnectorId = "104eb6e0-1cd4-11ea-9b7a-c17d2986804f";
-const googlesheetsConnectorId = "ff6eb8b0-182e-11ea-9b7a-c17d2986804f";
+const slackConnectorId = "";
+const googlesheetsConnectorId = "";
 
 module.exports.handle = function*({channelToSource, channelToNotify, spreadsheetId}) {
   const slack = this.connector("slack", slackConnectorId);
