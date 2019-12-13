@@ -1,11 +1,11 @@
-const slackConnectorId = "";
-const googlesheetsConnectorId = "";
+const slackConnectorId = "<ENTER_YOUR_ZENATON_SLACK_CONNECTOR_ID>";
+const googlesheetsConnectorId = "<ENTER_YOUR_ZENATON_GOOGLE_SHEETS_CONNECTOR_ID>";
 
 module.exports.handle = function*({channelToSource, channelToNotify, spreadsheetId}) {
   const slack = this.connector("slack", slackConnectorId);
   const google_sheets = this.connector("google_sheets", googlesheetsConnectorId);
 
-  // Extract historical messages from a slack channel
+  // Extract messages from a slack channel
   const history = (yield slack.get("channels.history", {
     query: {
       channel: channelToSource
@@ -14,10 +14,10 @@ module.exports.handle = function*({channelToSource, channelToNotify, spreadsheet
 
   const range = "sheet1!A:D";
 
-  // Transform data to fit GoogleSheet format
+  // Transform data to match GoogleSheet format
   const cells = history.messages.map(x => [x.user, x.text]);
 
-  // Append data in a GoogleSheet
+  // Append data to a GoogleSheet
   yield google_sheets.post(
     `/${spreadsheetId}/values/${range}:append?valueInputOption=RAW`,
     {
@@ -29,7 +29,7 @@ module.exports.handle = function*({channelToSource, channelToNotify, spreadsheet
     }
   );
 
-  // Send a private Slack message when it's done
+  // Send a Slack message to the destination channel
   yield slack.post("chat.postMessage", {
     body: {
       text: "Done",
