@@ -1,0 +1,49 @@
+{
+  "name": "Zenaton Slack to Airtable",
+  "description": "Zenaton workflow example of storing slack data to airtable",
+  "repository": "https://github.com/zenaton-samples/slack-to-google-sheets",
+  "logo": "https://avatars0.githubusercontent.com/u/26751818?s=200&v=4",
+  "keywords": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "zenaton/heroku-buildpack-zenaton"
+    }
+  ],
+  "env": {
+    "ZENATON_APP_ID": {
+      "description": "The Zenaton Application ID (find it on https://app.zenaton.com/api)",
+      "required": true
+    },
+    "ZENATON_API_TOKEN": {
+      "description": "The Zenaton API token (find it on https://app.zenaton.com/api)",
+      "required": true
+    },
+    "ZENATON_APP_ENV": {
+      "description": "The Zenaton environment",
+      "value": "dev",
+      "required": true
+    },
+    "ZENATON_LISTEN_ARGS": {
+      "description": "The Zenaton Agent listen args",
+      "value": "--boot=boot.js",
+      "required": true
+    },
+    "SLACK_API_KEY": {
+      "description": "The Slack API Key",
+      "required": true
+    },
+    "AIRTABLE_KEY": {
+      "description": "The Airtable API KEY (find it on https://airtable.com/account)",
+      "required": true
+    }
+  },
+  "formation": {
+    "zenatonworker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
