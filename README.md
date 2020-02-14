@@ -37,7 +37,7 @@ curl --request POST \
         "appId": "<app id>",
         "environment": "<environment>",
         "name": "slackToAirtableWorkflow",
-		"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
+	"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
       }
     }
   }'
@@ -57,9 +57,9 @@ curl --request POST \
       "input": {
         "appId": "<app id>",
         "environment": "<environment>",
-		"cron": "0 2 * * *",
+	"cron": "0 2 * * *",
         "name": "slackToAirtableWorkflow",
-		"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
+	"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
       }
     }
   }'
