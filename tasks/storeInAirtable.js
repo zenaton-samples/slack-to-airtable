@@ -3,6 +3,8 @@ const axios = require("axios");
 const { AIRTABLE_KEY } = process.env;
 
 module.exports.handle = async function(baseId, tableName, messages) {
+  
+  // get current records in Airtable
   const currentRecords = await axios.get(
     `https://api.airtable.com/v0/${baseId}/${tableName}`,
     {
