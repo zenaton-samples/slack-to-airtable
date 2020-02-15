@@ -1,4 +1,5 @@
 const axios = require("axios");
+const _ = require("lodash");
 
 const { AIRTABLE_KEY } = process.env;
 
@@ -34,10 +35,7 @@ module.exports.handle = async function(baseId, tableName, messages) {
     });
 
   // create chunks of 10 records because of Airtable API limitation
-  const newRecordsChunk = [];
-  while (newRecords.length > 0) {
-    newRecordsChunk.push(newRecords.splice(0, 10));
-  }
+  const newRecordsChunk = _.chunk(newRecords, 10);
 
   // store in Airtable
   newRecordsChunk.forEach(chunkRecords => {

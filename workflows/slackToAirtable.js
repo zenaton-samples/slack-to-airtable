@@ -3,5 +3,5 @@ module.exports.handle = function*(channelToSource, numberOfMessages, airtableBas
   const messages = yield this.run.task("getSlackMessages", channelToSource, numberOfMessages);
   
   // store messages in an Airtable base table
-  const response = yield this.run.task("storeInAirtable", airtableBaseId, tableName, messages);
+  yield this.run.task("storeInAirtable", airtableBaseId, tableName, messages);
 };

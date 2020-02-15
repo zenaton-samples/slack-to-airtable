@@ -6,7 +6,7 @@ This example shows how to create a workflow that retrieves the latest messages f
 
 ## Requirements
 
-- A [Zenaton](https://zenaton.com/) account, API id and API key
+- A [Zenaton](https://zenaton.com/) account, APP id and API key
 - A [Slack](https://slack.com/) account with an app API key
 - A [Airtable](https://airtable.com/) account with an API key and a table with this columns:
 	- date (datetime)
@@ -37,13 +37,13 @@ curl --request POST \
         "appId": "<app id>",
         "environment": "<environment>",
         "name": "slackToAirtableWorkflow",
-	"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
+	    "input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
       }
     }
   }'
 ```
 
-You can too use the [Zenaton cron feature](https://docs.zenaton.com/client/graphql-api/#schedule-a-workflow) to dipatch this workflow every day at 2PM:
+You can too use the [Zenaton scheduler](https://docs.zenaton.com/client/graphql-api/#schedule-a-workflow) to dipatch this workflow every day at 2PM:
 
 ```
 curl --request POST \
@@ -57,9 +57,9 @@ curl --request POST \
       "input": {
         "appId": "<app id>",
         "environment": "<environment>",
-	"cron": "0 2 * * *",
+	    "cron": "0 2 * * *",
         "name": "slackToAirtableWorkflow",
-	"input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
+	    "input": "[\"SLACK_CHANNEL\", \"30\", \"AIRTABLE_TABLE\", \"AIRTABLE_SHEET\"]"
       }
     }
   }'
@@ -67,4 +67,4 @@ curl --request POST \
 
 ## Run on Heroku
 
-Follow this button [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy), then fill in the env variables and click "deploy".
+Click this button [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy), then fill in the env variables and click "deploy".

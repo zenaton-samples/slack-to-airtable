@@ -26,11 +26,6 @@
       "value": "dev",
       "required": true
     },
-    "ZENATON_LISTEN_ARGS": {
-      "description": "The Zenaton Agent listen args",
-      "value": "--boot=boot.js",
-      "required": true
-    },
     "SLACK_API_KEY": {
       "description": "The Slack API Key",
       "required": true
