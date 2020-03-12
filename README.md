@@ -2,7 +2,7 @@
 
 ## Context
 
-This example shows how to create a workflow that retrieves the latest messages from a Slack channel and stored their date, author and content in an Airtable table.
+This example shows how to create a workflow that retrieves the latest messages from a Slack channel and stores the date, author and content in an Airtable table.
 
 ## Requirements
 
@@ -15,14 +15,14 @@ This example shows how to create a workflow that retrieves the latest messages f
 
 ## Workflow Logic
 
-Step by step, the workflow logic is:
+Step by step workflow logic:
 - Retrieve the last N messages from a Slack channel
 - Retrieve the content of the Airtable table
 - Saves all Slack messages not present in Airtable
 
 ## Dispatch
 
-You can easily dipatch this workflow by using the [Zenaton graphql API](https://docs.zenaton.com/client/graphql-api):
+Dispatch this workflow by using the [Zenaton graphQL API](https://docs.zenaton.com/client/graphql-api):
 
 ```
 curl --request POST \
@@ -43,7 +43,7 @@ curl --request POST \
   }'
 ```
 
-You can too use the [Zenaton scheduler](https://docs.zenaton.com/client/graphql-api/#schedule-a-workflow) to dipatch this workflow every day at 2PM:
+You can also use the [Zenaton scheduler](https://docs.zenaton.com/client/graphql-api/#schedule-a-workflow) to dispatch this workflow every day at 2PM:
 
 ```
 curl --request POST \
